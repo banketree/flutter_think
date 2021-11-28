@@ -21,8 +21,7 @@ class StringDemo extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Text("    String数据类型表示字符序列， Dart字符串是UTF 16代码单元的序列，"
                 "\nDart中的字符串值可以使用单引号，双引号或三引号表示。"
@@ -125,9 +124,5 @@ class StringDemo extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  buildTest1() {
-    return Container();
   }
 }

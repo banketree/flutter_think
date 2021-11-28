@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_action/page/dart_page/num_demo.dart';
 import 'package:flutter_action/page/dart_page/string_demo.dart';
 
 var dartList = [
@@ -34,6 +35,13 @@ bool handleDart(BuildContext context, String name) {
       context,
       new MaterialPageRoute(builder: (context) => new StringDemo()),
     );
+    return true;
+  } else if (name == "num") {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new NumDemo()),
+    );
+    return true;
   }
   return false;
 }
