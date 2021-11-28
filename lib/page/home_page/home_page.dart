@@ -28,7 +28,15 @@ class _HomePageState extends State<HomePage> {
               SizedBox(
                 height: 10,
               ),
-              _buildLayoutList("Layout List", layoutList, _onFunctionCall),
+              _buildLayoutList("Dart 知识点", dartList, _onFunctionCall),
+              SizedBox(
+                height: 10,
+              ),
+              _buildLayoutList("Widget 知识点", widgetList, _onFunctionCall),
+              SizedBox(
+                height: 10,
+              ),
+              _buildLayoutList("Flutter 知识点", flutterList, _onFunctionCall),
             ],
           ),
         ),
@@ -41,10 +49,14 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  _onFunctionCall(String name) {}
+  _onFunctionCall(BuildContext context, String name) {
+    if (handleDart(context, name)) {
+    } else if (handleWidget(context, name)) {
+    } else if (handleFlutter(context, name)) {}
+  }
 
   _buildLayoutList(String headerName, List<String> funList,
-      Function(String name) onCallBack) {
+      Function(BuildContext context, String name) onCallBack) {
     if (funList.isEmpty) {
       return Container();
     }
@@ -60,18 +72,25 @@ class _HomePageState extends State<HomePage> {
         GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: 4, //每行四列
-            childAspectRatio: 1.0, //显示区域宽高相等
+            childAspectRatio: 2.5, //显示区域宽高相等
+            //纵轴间距
+            mainAxisSpacing: 15.0,
+            //横轴间距
+            crossAxisSpacing: 1.0,
           ),
           itemCount: funList.length,
           shrinkWrap: true,
+          physics: NeverScrollableScrollPhysics(),
           itemBuilder: (context, index) {
             var funName = funList[index];
-            return InkWell(
-              onTap: () {
-                onCallBack(funName);
+            return TextButton(
+              onPressed: () {
+                onCallBack(context, funName);
               },
-              child: Text(
-                funName,
+              child: Center(
+                child: Text(
+                  funName,
+                ),
               ),
             );
           },
