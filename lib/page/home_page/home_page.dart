@@ -63,10 +63,12 @@ class _HomePageState extends State<HomePage> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          headerName,
-          style: TextStyle(
-            fontSize: 18,
+        Center(
+          child: Text(
+            headerName,
+            style: TextStyle(
+              fontSize: 18,
+            ),
           ),
         ),
         GridView.builder(

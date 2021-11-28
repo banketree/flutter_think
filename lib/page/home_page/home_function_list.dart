@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_action/page/dart_page/string_demo.dart';
 
 var dartList = [
   "string",
@@ -28,7 +29,12 @@ var dartList = [
 ];
 
 bool handleDart(BuildContext context, String name) {
-
+  if (name == "string") {
+    Navigator.push(
+      context,
+      new MaterialPageRoute(builder: (context) => new StringDemo()),
+    );
+  }
   return false;
 }
 
@@ -178,9 +184,7 @@ var widgetList = [
   "MergeableMaterial",
 ];
 
-
 bool handleWidget(BuildContext context, String name) {
-
   return false;
 }
 
@@ -276,6 +280,5 @@ var flutterList = [
 ];
 
 bool handleFlutter(BuildContext context, String name) {
-
   return false;
 }
